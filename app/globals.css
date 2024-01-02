@@ -81,6 +81,11 @@ body,
     @apply bg-background text-foreground;
   }
 }
+body{
+  margin: 0%;
+  padding: 0%;
+  background-color: black;
+}
 
 
 .sparkle-button {
