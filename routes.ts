@@ -1,10 +1,11 @@
 export const publicRoutes = [
-    "/"
+    "/","/never-render"
 ]
 
 export const authRoutes = [
     "/auth/login",
-    "/auth/register"
+    "/auth/register",
+    "/auth/error"
 ];
 
 
