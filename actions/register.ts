@@ -5,6 +5,8 @@ import * as z from "zod";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { getUserByEmail } from "@/data/user";
+import { generateVerificationToken } from "@/lib/token";
+import { sendVerificationEmail } from "@/lib/mail";
 
 export const Register = async(values:z.infer<typeof RegisterSchema>) =>{
     
@@ -21,7 +23,7 @@ export const Register = async(values:z.infer<typeof RegisterSchema>) =>{
 
     if(existingUser){
         return{
-            error:"Email Already in use"
+            error:"Email Already exists"
         }
     }
 
@@ -33,13 +35,19 @@ export const Register = async(values:z.infer<typeof RegisterSchema>) =>{
         }
     })
 
-    //TODO: send verification token email
-    //We never have to allow someone who hasn't verified their emails
+    const verificationToken = await generateVerificationToken(email);
+    
+    //sending verification email
+    await sendVerificationEmail(
+        verificationToken.email,
+        verificationToken.token
+    )
+    
 
 
     //If the details are validated then we have as
     return {
-        success: "Email sent"
-    }
+        success: "Confirmation email sent"
+    }   
     
 }
