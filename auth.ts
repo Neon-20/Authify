@@ -13,15 +13,41 @@ export const {
     signIn,
     signOut
 } = NextAuth({
+pages:{
+    signIn:"/auth/login",
+    error:"/auth/error"
+},
+//automatically populate the email-verified fiels if we login with Oauth
+events:{
+    async linkAccount({user}){
+        await db.user.update({
+            where:{
+                id:user.id,
+            },
+            data:{
+                emailVerified: new Date()
+            }
+        })
+    }
+},
+
+//match for second checking.
+
 callbacks:{
-    //Just trying to block myself from signing in xD
-    // async signIn({user}){
-    //     const existingUser = await getUserById(user.id);
-    //     if(!existingUser || !existingUser.emailVerified){
-    //         return false
-    //     }
-    //     return true;
-    // }
+    //Just trying to block myself from signing in xD if I am not verified
+    async signIn({user,account}){
+        //Allow OAuth without email verification
+        if(account?.provider!=="credentials") return true;
+        
+        const existingUser = await getUserById(user.id);
+
+        //prevent signIn without email verification
+        if(!existingUser?.emailVerified) return false;
+
+        //Todo: Add 2FA check
+
+        return true;
+    },
     
     async session({token,session}){
         if(token.sub && session.user){
