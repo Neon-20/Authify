@@ -17,7 +17,7 @@ export const HeaderSection = ({
         <div className="w-full flex flex-col gap-y-2 items-center
         justify-center">
             <div className="inline-flex gap-x-2">
-        <h1 className={cn("z-10 text-3xl font-semibold bg-clip-text text-transparent bg-gradient-to-tr from-violet-600 to-neutral-200",font.className)}>
+        <h1 className={cn("z-10 text-3xl font-semibold bg-clip-text text-transparent text-white",font.className)}>
             Authify 
         </h1>
         <span className="text-3xl">🔐</span>
