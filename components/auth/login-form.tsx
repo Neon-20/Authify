@@ -5,6 +5,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import * as z from "zod";
 import  {LoginSchema}  from "@/schema";
+import { useSearchParams } from "next/navigation";
 
 import {
     Form,
@@ -15,6 +16,7 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form"
+
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
@@ -23,6 +25,9 @@ import { Login } from "@/actions/login";
 import { useState, useTransition } from "react";
 
 export const LoginForm = () => {
+    const searchParams = useSearchParams();
+    const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ?
+    "Email already in use with different provider!" : ""
     const[error,setError] = useState<string | undefined>("");
     const[success,setSuccess] = useState<string | undefined>("");
     const[isPending,startTransition] = useTransition();
@@ -39,12 +44,12 @@ export const LoginForm = () => {
         setSuccess("");
         startTransition(()=>{
         Login(values).
-        then((data:any) => {
-        setError(data.error);
-        setSuccess(data.success)
+        then((data) => {
+        setError(data?.error);
+        setSuccess(data?.success)
         })
     })
-    }
+    }   
 
     return ( 
         <CardWrapper
@@ -105,7 +110,7 @@ export const LoginForm = () => {
             )}
             />
             {/* </div> */}
-            <FormError message = {error}/>
+            <FormError message = {error || urlError}/>
             <FormSuccess message = {success}/>
             <Button
             size="lg"
