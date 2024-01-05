@@ -47,11 +47,15 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-// If we are implementing magic link sort of stuff we can use this
-// model VerificationToken {
-//   identifier String
-//   token      String   @unique
-//   expires    DateTime
+//Below schema is for 2FA 
 
-//   @@unique([identifier, token])
-// }
+
+// If we are implementing magic link sort of stuff we can use this
+model VerificationToken {
+  id String @id @default(cuid())
+  email String
+  token String @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
