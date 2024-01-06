@@ -36,6 +36,11 @@ events:{
 callbacks:{
     //Just trying to block myself from signing in xD if I am not verified
     async signIn({user,account}){
+        // console.log({
+        //     user,
+        //     account
+        // })
+
         //Allow OAuth without email verification
         if(account?.provider!=="credentials") return true;
         
