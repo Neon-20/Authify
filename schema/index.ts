@@ -26,4 +26,18 @@ name:z.string().min(1,{
 })
 })
 
+export const ResetSchema = z.object({
+    email:z.string().email({
+    message:"Email is required"
+}),
+})
+
+export const NewPasswordSchema = z.object({
+    password:z.string().min(1,{
+    message:"Password is required"
+}),
+})
+
+
+
 
