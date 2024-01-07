@@ -23,6 +23,7 @@ import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { Login } from "@/actions/login";
 import { useState, useTransition } from "react";
+import Link from "next/link";
 
 export const LoginForm = () => {
     const searchParams = useSearchParams();
@@ -105,6 +106,16 @@ export const LoginForm = () => {
                         disabled = {isPending}
                         />
                     </FormControl>
+                    <Button
+            size="sm"
+            variant="link"
+            className="font-normal w-full hover:animate-pulse"
+            asChild
+            >
+            <Link href="/auth/reset">
+                Forgot Password?
+            </Link>
+            </Button>
                     <FormMessage/>
                 </FormItem>
             )}
