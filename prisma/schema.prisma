@@ -72,17 +72,20 @@ model PasswordResetToken{
   @@unique([email,token])
 }
 
+
+
+
 model TwoFactorToken{
-  id        String  @id @default(cuid())
-  email     String 
-  token     String  @unique
-  expires   DateTime
+  id                 String @id @default(cuid())
+  email              String 
+  token              String @unique
+  expires            DateTime
+
   @@unique([email,token])
 }
 
 model TwoFactorConfirmation{
-  id        String  @id @default(cuid())
-  userId    String  @unique
+  id                 String @id @default(cuid())
+  userId             String @unique
   user User @relation(fields: [userId],references: [id],onDelete: Cascade)
 }
-
