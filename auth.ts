@@ -4,6 +4,7 @@ import { PrismaClient, UserRole } from "@prisma/client"
 import authConfig from "./auth.config"
 import { db } from "./lib/db"
 import { getUserById } from './data/user';
+import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation"
 
 const prisma = new PrismaClient()
 
@@ -17,7 +18,7 @@ pages:{
     signIn:"/auth/login",
     error:"/auth/error"
 },
-//automatically populate the email-verified fiels if we login with Oauth
+//automatically populate the email-verified fields if we login with Oauth
 events:{
     async linkAccount({user}){
         await db.user.update({
@@ -49,8 +50,19 @@ callbacks:{
         //prevent signIn without email verification
         if(!existingUser?.emailVerified) return false;
 
-        //Todo: Add 2FA check
-
+        //do 2FA callback
+        if(existingUser.isTwoFactorEnabled && existingUser.email){
+            const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(existingUser.id) 
+            if(!twoFactorConfirmation){
+                return false;
+            }
+        await db.twoFactorConfirmation.delete({
+            where:{
+                id:twoFactorConfirmation.id
+            }
+        })
+        }
+        
         return true;
     },
     
