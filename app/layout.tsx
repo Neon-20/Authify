@@ -4,7 +4,8 @@ import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import Head from 'next/head'
 import { Toaster, toast } from 'sonner'
-
+import { auth } from '@/auth'
+import { SessionProvider } from 'next-auth/react'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,12 +15,14 @@ export const metadata: Metadata = {
   description: 'One Source for all authentication requirements',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await auth();
   return (
+    <SessionProvider>
     <html lang="en" suppressHydrationWarning>
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -36,5 +39,6 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
+    </SessionProvider>
   )
 }
