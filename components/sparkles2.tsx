@@ -9,7 +9,7 @@ export function SparklesPreview2({
     children,
 }:SparklesPreviewProps) {
   return (
-    <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center">
+    <div className="h-full relative w-full bg-black flex flex-col items-center justify-center">
         <div className="w-full absolute inset-0 h-screen">
         <SparklesCore
             id="tsparticlesfullpage"
