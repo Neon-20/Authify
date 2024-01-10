@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
-import Head from 'next/head'
 import { Toaster, toast } from 'sonner'
 import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
@@ -24,9 +23,6 @@ export default async function RootLayout({
   return (
     <SessionProvider>
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <body className={inter.className}>
       <Toaster position='top-center' richColors/>
       <ThemeProvider
