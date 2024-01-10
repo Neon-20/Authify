@@ -7,7 +7,7 @@ const AuthLayout = ({
 }) => {
     return ( 
         <>
-        <SparklesPreview2>
+        <SparklesPreview2 >
             {children}
         </SparklesPreview2>
         </>
