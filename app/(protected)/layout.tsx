@@ -8,7 +8,7 @@ const ProtectedLayout = ({
 }) => {
     return (
         <div className="h-full w-full flex flex-col
-        items-center justify-center gap-y-10">
+        items-center justify-center gap-y-10" suppressHydrationWarning>
     <SparklesPreview2>
         <NavBar/>
         {children}
