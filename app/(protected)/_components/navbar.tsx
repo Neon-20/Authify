@@ -1,4 +1,5 @@
 "use client"
+import { UserButton } from "@/components/auth/user-button";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +9,7 @@ const NavBar = () => {
     const pathname = usePathname();
     return ( 
         <nav className="
-        bg-black border shadow-md  border-purple-400 flex justify-between items-center p-4
+        border shadow-md  border-purple-400 flex justify-between items-center p-4
         rounded-xl w-[600px] backdrop-blur-sm">
         <div className="flex gap-x-2">
         {/* Now with this gap render all the navbar list items */}
@@ -45,7 +46,7 @@ const NavBar = () => {
             </Link>
         </Button>
         </div>
-        <p>User Button</p>
+        <UserButton/>
         </nav>
     );
 }
