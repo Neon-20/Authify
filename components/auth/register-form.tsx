@@ -5,6 +5,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import * as z from "zod";
 import  {RegisterSchema}  from "@/schema";
+import {motion} from "framer-motion";
 
 import {
     Form,
@@ -130,6 +131,11 @@ export const RegisterForm = () => {
             {/* </div> */}
             <FormError message = {error}/>
             <FormSuccess message = {success}/>
+            <motion.button
+             whileHover={{ scale: 1 }}
+             whileTap={{ scale: 0.9 }}
+             className="w-full"
+             >
             <Button
             size="lg"
             className="w-full hover:bg-slate-900 backdrop-blur-sm cursor-pointer"
@@ -147,6 +153,7 @@ export const RegisterForm = () => {
                 <p>Register</p>
             )}
             </Button>
+            </motion.button>
         </form>
         </Form>
         </CardWrapper>
