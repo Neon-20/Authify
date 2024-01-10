@@ -9,7 +9,7 @@ const NavBar = () => {
     const pathname = usePathname();
     return ( 
         <nav className="
-        border shadow-md  border-purple-400 flex justify-between items-center p-4
+        border shadow-md flex justify-between items-center p-4
         rounded-xl w-[600px] backdrop-blur-sm">
         <div className="flex gap-x-2">
         {/* Now with this gap render all the navbar list items */}
