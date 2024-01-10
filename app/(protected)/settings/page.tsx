@@ -1,14 +1,15 @@
 // import { auth, signOut } from "@/auth";
 "use client"
+import { logout } from "@/actions/logout";
 import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/use-current-user";
-import { signOut } from "next-auth/react";
 
 const SettingsPage = () =>{
     const session = useCurrentUser();
     const onClick = () =>{
-        signOut();
+        logout();
     }
+    
     return(
         <div className="bg-white backdrop-blur-sm rounded-xl">
         <Button
