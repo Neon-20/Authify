@@ -24,7 +24,7 @@ export default async function RootLayout({
     <SessionProvider>
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-      <Toaster position='top-center' richColors/>
+      <Toaster position='bottom-center' richColors/>
       <ThemeProvider
             attribute="class"
             defaultTheme="dark"
