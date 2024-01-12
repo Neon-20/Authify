@@ -11,6 +11,7 @@ import { sendVerificationEmail,sendTwoFactorEmail } from "@/lib/mail";
 import { getTwoFactorTokenfromEmail } from "@/data/two-factor-token";
 import { db } from "@/lib/db";
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
+import bcrypt from 'bcryptjs';
 
 export const Login = async(values:z.infer<typeof LoginSchema>) =>{
     //validate these fields on server side as well
@@ -26,9 +27,10 @@ export const Login = async(values:z.infer<typeof LoginSchema>) =>{
     //If the details are validated then we have as
     const {email,password,code} = validatedFields.data
     const existingUser = await getUserByEmail(email);
-    if(!existingUser?.email || !existingUser || !existingUser.password){ //
+    if(!existingUser?.email || !existingUser || !existingUser.password || 
+        !bcrypt.compareSync(password,existingUser.password)){ //
         return {
-        error:"Email doesn't exist"
+        error:"Invalid Credentials"
         }
     }
 
@@ -87,7 +89,7 @@ export const Login = async(values:z.infer<typeof LoginSchema>) =>{
         await db.twoFactorConfirmation.create({
             data:{
                 userId:existingUser.id
-            }
+            }   
         })
         }
         else{
@@ -104,6 +106,7 @@ export const Login = async(values:z.infer<typeof LoginSchema>) =>{
         return {twoFactor: true}
         }
     }
+
     
 
     try{
