@@ -6,6 +6,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import * as z from "zod";
 import  {LoginSchema}  from "@/schema";
 import { useSearchParams } from "next/navigation";
+import {motion} from "framer-motion";
 
 import {
     Form,
@@ -175,7 +176,11 @@ export const LoginForm = () => {
                 <p>Confirm</p>
             )}
             </Button>)}
-
+            <motion.button
+             whileHover={{ scale: 1 }}
+             whileTap={{ scale: 0.9 }}
+             className="w-full"
+             >
             {!showTwoFactor && (
             <Button
             size="lg"
@@ -193,6 +198,7 @@ export const LoginForm = () => {
                 <p>Login</p>
             )}
             </Button>)}
+            </motion.button>
         </form>
         </Form>
         </CardWrapper>

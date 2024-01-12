@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useCurrentRole } from "@/hooks/use-current-role";
 import { UserRole } from "@prisma/client";
 import { toast } from "sonner";
+import {motion} from "framer-motion";
 
 const AdminPage = () => {
     const onApiRouteClick = async() => {
@@ -32,7 +33,13 @@ const AdminPage = () => {
     }
 
     const role =  useCurrentRole();
-    return ( 
+    return (
+
+        <motion.div
+        initial={{ opacity: 0.5, scale: 0.75 }}
+        animate={{ opacity: 0.9, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        >
         <Card className="w-[600px] mt-4 backdrop-blur-sm bg-black">
         <CardHeader>
             <p className="text-center items-center text-2xl font-semibold">
@@ -67,6 +74,7 @@ const AdminPage = () => {
         </div>
         </CardContent>
         </Card>
+        </motion.div>
 
     );
 }
