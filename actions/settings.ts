@@ -1,11 +1,15 @@
 "use server";
 
 import { getUserByEmail, getUserById } from "@/data/user";
+import { getVerificationTokenByEmail } from "@/data/verification-token";
 import { CurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { sendVerificationEmail } from "@/lib/mail";
+import { generateVerificationToken } from "@/lib/token";
 import { SettingsSchema } from "@/schema";
 import { error } from "console";
 import * as z from "zod";
+import bcrypt from "bcryptjs";
 
 export const settings = async(values:z.infer<typeof SettingsSchema>) =>{
     // console.log("This takes the click")
@@ -39,7 +43,33 @@ export const settings = async(values:z.infer<typeof SettingsSchema>) =>{
                 error:"Email Already in use!"
             }
         }
+        const verificationToken = await generateVerificationToken(values.email);
+        await sendVerificationEmail(
+            verificationToken.email,
+            verificationToken.token,
+        )
+        return{
+            success:"Verification Email Sent!"
+        }
     }
+
+    if(values.password && values.newPassword && dbUser.password){
+        const passwordMatch = await bcrypt.compare(
+        values.password,
+        dbUser.password
+        )
+        if(!passwordMatch){
+            return{
+                error:"Password didn't match"
+            }
+        }
+        //store new password as a hash
+        const passwordHash = await bcrypt.hash(values.newPassword,10)
+    
+        values.password = passwordHash;
+        values.newPassword = undefined
+    }
+    
 
     //finally user does exist
     await db.user.update({
