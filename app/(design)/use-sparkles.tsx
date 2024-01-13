@@ -4,6 +4,8 @@ import  SparklesCore  from '../../components/sparkles';
 import { ThreeDCardDemo } from "./use-3dcard";
 import { LoginButton } from "@/components/auth/login-button";
 import { StartNowButton } from "./landing-start-button";
+import Lottie from "lottie-react";
+import animationData from "@/public/lottie/moving-file/Animation1.json";
 
 export function SparklesPreview() {
   return (
@@ -18,6 +20,13 @@ export function SparklesPreview() {
             className="w-full h-full"
             particleColor="#FFFFFF"
         />
+      </div>
+      <div className="flex justify-center items-center">
+      <Lottie
+        animationData={animationData}
+        className="flex justify-center h-32 items-center"
+        loop={true}
+      />
       </div>
       <div className="flex flex-col items-center justify-center 
       w-full mb-6 z-50">
