@@ -40,7 +40,8 @@ export function SparklesPreview() {
       Authify presents a simple yet robust authentication system designed to meet the specific needs of developers. 👨🏻‍💻</p>
       </div>
       {/* <div className="flex flex-col items-center justify-center w-full"> */}
-      <LoginButton>
+      <LoginButton asChild>
+        {/* Can put mode="modal" if wanted later */}
       <StartNowButton/>
       </LoginButton>
       {/* </div> */}

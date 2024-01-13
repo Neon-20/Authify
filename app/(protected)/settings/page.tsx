@@ -1,6 +1,5 @@
 // import { auth, signOut } from "@/auth";
 "use client"
-import { logout } from "@/actions/logout";
 import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import {motion} from "framer-motion";
@@ -120,6 +119,7 @@ const SettingsPage = () =>{
                                 focus-visible:ring-offset-0"
                                 {...field}
                                 placeholder="Pranav Rajveer"
+                                required
                                 type="text"
                                 disabled={isPending}
                                 />

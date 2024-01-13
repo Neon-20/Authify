@@ -28,6 +28,7 @@ import Link from "next/link";
 
 export const LoginForm = () => {
     const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get("callbackUrl")
     const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ?
     "Email already in use with different provider!" : ""
     const[error,setError] = useState<string | undefined>("");
@@ -54,7 +55,7 @@ export const LoginForm = () => {
     
     const onSubmit = (values:z.infer<typeof LoginSchema>) => {
         startTransition(()=>{
-        Login(values).
+        Login(values,callbackUrl).
         then((data) => {
         if(data?.error){
             form.reset();
