@@ -23,7 +23,7 @@ import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { Login } from "@/actions/login";
-import { useState, useTransition } from "react";
+import { useState, useTransition, useEffect } from 'react';
 import Link from "next/link";
 
 export const LoginForm = () => {
@@ -34,6 +34,8 @@ export const LoginForm = () => {
     const[success,setSuccess] = useState<string | undefined>("");
     const[isPending,startTransition] = useTransition();
     const[showTwoFactor,setShowTwoFactor] = useState<boolean>(false);
+    const[isClient,setIsClient] = useState<boolean>(false)
+
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver:zodResolver(LoginSchema),
         defaultValues:{
@@ -42,6 +44,14 @@ export const LoginForm = () => {
         }
     })
 
+    useEffect(()=>{
+        setIsClient(true);
+    },[])
+
+    if(!isClient){
+        return null;
+    }
+    
     const onSubmit = (values:z.infer<typeof LoginSchema>) => {
         startTransition(()=>{
         Login(values).
