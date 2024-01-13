@@ -1,6 +1,8 @@
 import UserInfo from "@/components/user-info";
 import { CurrentUser } from "@/lib/auth";
 
+//Todo: Wrap this component inside a client component
+
 const ServerPage = async() => {
     //fetch current user
     const user = await CurrentUser(); 
