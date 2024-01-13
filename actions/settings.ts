@@ -1,6 +1,6 @@
 "use server";
 
-import { getUserById } from "@/data/user";
+import { getUserByEmail, getUserById } from "@/data/user";
 import { CurrentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { SettingsSchema } from "@/schema";
@@ -8,7 +8,7 @@ import { error } from "console";
 import * as z from "zod";
 
 export const settings = async(values:z.infer<typeof SettingsSchema>) =>{
-    console.log("This takes the click")
+    // console.log("This takes the click")
     const user = await CurrentUser();
     if(!user){
         return{
@@ -23,6 +23,24 @@ export const settings = async(values:z.infer<typeof SettingsSchema>) =>{
             error:"UnAuthorized"
         }
     }
+    
+    //if user is OAuth we will show different settings to him
+    if(user.isOAuth){
+    values.email = undefined
+    values.password = undefined
+    values.newPassword = undefined
+    values.isTwoFactorEnabled = undefined
+    }
+
+    if(values.email && values.email!==user.email){
+        const existingUser = await getUserByEmail(values.email);
+        if(existingUser && existingUser.id!==user.id){
+            return{
+                error:"Email Already in use!"
+            }
+        }
+    }
+
     //finally user does exist
     await db.user.update({
         where:{
