@@ -13,7 +13,10 @@ import { db } from "@/lib/db";
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 import bcrypt from 'bcryptjs';
 
-export const Login = async(values:z.infer<typeof LoginSchema>) =>{
+export const Login = async(
+    values:z.infer<typeof LoginSchema>,
+    callbackUrl?:string | null
+    )   =>{
     //validate these fields on server side as well
     // because data can be manipulated from client side as well
     const validatedFields = LoginSchema.safeParse(values);
@@ -113,7 +116,7 @@ export const Login = async(values:z.infer<typeof LoginSchema>) =>{
     await signIn("credentials",{
         email,
         password,
-        redirectTo:DEFAULT_LOGIN_REDIRECT,
+        redirectTo:callbackUrl || DEFAULT_LOGIN_REDIRECT,
     })
     }
     catch(error){
