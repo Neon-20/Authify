@@ -25,6 +25,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.0.3",
     "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.3",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
