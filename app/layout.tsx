@@ -27,6 +27,7 @@ export default async function RootLayout({
     <SessionProvider>
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        
       <Toaster position='bottom-center' richColors/>
       <ThemeProvider
             attribute="class"
@@ -34,6 +35,13 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+    {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview") && (
+    // eslint-disable-next-line @next/next/no-sync-scripts
+    <script
+      data-project-id="Yri7gyrFunRdwGL3iSkPmMTpW8d3XclbBNCn1GhN"
+      data-is-production-environment="false"
+      src="https://snippet.meticulous.ai/v1/meticulous.js"
+    />)}
         {children}
         <Analytics />
         <SpeedInsights />
