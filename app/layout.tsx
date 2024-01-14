@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster, toast } from 'sonner'
 import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
+import { Analytics } from '@vercel/analytics/react';
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -32,6 +34,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
         {children}
+        <Analytics />
         </ThemeProvider>
       </body>
     </html>
