@@ -1,4 +1,4 @@
-# 🖊️ Authify - Auth for devs (next-auth v5)
+# 🔐 Authify - Auth for devs (next-auth v5)
 
 Authify delivers a developer-friendly authentication solution 🤝. Our focus: Simplicity meets Robust Security! 🛡️ Seamlessly integrate into your projects with ease, hassle-free implementation guaranteed! 🌐💻 
 
