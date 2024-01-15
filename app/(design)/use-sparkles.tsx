@@ -8,10 +8,11 @@ import Lottie from "lottie-react";
 import animationData from "@/public/lottie/moving-file/Animation1.json";
 import Link from "next/link";
 import {motion} from "framer-motion";
+import Logo from "../(marketing)/_components/logo";
 
 export function SparklesPreview() {
   return (
-    <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center">
+    <div className="h-screen relative w-full flex flex-col items-center justify-center">
       <div className="w-full absolute inset-0 h-screen">
         <SparklesCore
             id="tsparticlesfullpage"
@@ -22,6 +23,9 @@ export function SparklesPreview() {
             className="w-full h-full"
             particleColor="#FFFFFF"
         />
+      </div>
+      <div className="top-0 fixed left-0 p-4">
+      <Logo/>
       </div>
       <div className="cursor-pointer">
       <motion.button
