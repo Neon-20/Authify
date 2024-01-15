@@ -1,4 +1,4 @@
-# 🖊️ Authify - Auth for devs (using next-auth v5)
+# 🖊️ Authify - Auth for devs (next-auth v5)
 
 Authify delivers a developer-friendly authentication solution 🤝. Our focus: Simplicity meets Robust Security! 🛡️ Seamlessly integrate into your projects with ease, hassle-free implementation guaranteed! 🌐💻 
 
@@ -29,4 +29,4 @@ Authify delivers a developer-friendly authentication solution 🤝. Our focus: S
 
 ## 🎬 Video
 
-https://github.com/mirayatech/NinjaPen/assets/71933266/bcad854b-e694-4a34-8003-c3ed5e67287e
+https://github.com/Neon-20/Authy/assets/55043383/c4921663-f1c9-4e17-a0b5-124934f83f0b
