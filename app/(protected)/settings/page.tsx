@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import {motion} from "framer-motion";
+import { Asterisk } from 'lucide-react';
+
 import{
 Card,
 CardContent,
@@ -111,7 +113,10 @@ const SettingsPage = () =>{
                     name="name"
                     render={({field})=>(
                         <FormItem>
-                            <FormLabel>Name</FormLabel>
+                            <FormLabel className="inline-flex">
+                            Name
+                            <Asterisk className="text-red-600 h-3 w-3"/>
+                            </FormLabel>
                             <FormControl>
                                 <Input 
                                 className="cursor-pointer backdrop-blur-sm
