@@ -21,7 +21,7 @@ Authify delivers a developer-friendly authentication solution 🤝. Our focus: S
 - Resend
 - Next-Auth
 
-## 💡 Improvement
+## 💡 Future Improvements
 
 - *Testing*: Add certain edge test cases to test the product on every paradigm.
 - *EnterPrise Level*: Introduction of enterprise level SSO.
