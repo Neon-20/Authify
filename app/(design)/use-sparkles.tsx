@@ -6,6 +6,8 @@ import { LoginButton } from "@/components/auth/login-button";
 import { StartNowButton } from "./landing-start-button";
 import Lottie from "lottie-react";
 import animationData from "@/public/lottie/moving-file/Animation1.json";
+import Link from "next/link";
+import {motion} from "framer-motion";
 
 export function SparklesPreview() {
   return (
@@ -20,6 +22,18 @@ export function SparklesPreview() {
             className="w-full h-full"
             particleColor="#FFFFFF"
         />
+      </div>
+      <div className="cursor-pointer">
+      <motion.button
+            whileHover={{ scale: 1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-full"
+            >
+      <Link href="https://www.producthunt.com/posts/authify?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-authify" target="_blank" className="cursor-pointer">
+      <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=434549&theme=light" alt="Authify - Quick Authentication Setup for Devs | Product Hunt"
+      className="w-[200px] h-[54px] backdrop-blur-sm hover:transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 duration-300"/>
+      </Link>
+      </motion.button>
       </div>
       <div className="flex justify-center items-center">
       <Lottie
