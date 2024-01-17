@@ -50,7 +50,7 @@ export function SparklesPreview() {
             >
       <Link href="https://www.producthunt.com/posts/authify?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-authify" target="_blank" className="cursor-pointer">
       <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=434549&theme=light" alt="Authify - Quick Authentication Setup for Devs | Product Hunt"
-      className="w-[200px] h-[54px] backdrop-blur-sm hover:transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 duration-300"/>
+      className="w-[230px] h-[56px] backdrop-blur-sm hover:transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 duration-300"/>
       </Link>
       </motion.button>
       </div>
