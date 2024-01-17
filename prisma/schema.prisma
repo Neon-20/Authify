@@ -2,8 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
-
+  provider = "prisma-client-js" 
 }
 
 datasource db {
@@ -24,6 +23,7 @@ model User {
   emailVerified            DateTime?
   image                    String?
   password                 String?
+  confirm_password         String?
   role                     UserRole  @default(USER)  
   accounts                 Account[]
   isTwoFactorEnabled       Boolean   @default(false)

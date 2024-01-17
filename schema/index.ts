@@ -50,6 +50,9 @@ export const RegisterSchema = z.object({
 password:z.string().min(6,{
     message:"Minimum characters should be 6"
 }),
+confirm_password:z.string().min(6,{
+    message:"Minimum characters should be 6"
+}),
 
 name:z.string().min(1,{
     message:"Name is required"
