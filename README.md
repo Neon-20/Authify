@@ -12,7 +12,7 @@ Authify delivers a developer-friendly authentication solution 🤝. Our focus: S
 - **Server and Client Components Built-in**: Authify comes with both server and client components out of the box, streamlining the integration process for your application.
 - **Customizable to Your Needs**: Tailor Authify to fit your specific requirements by customizing its features and functionality according to your application's unique needs.
 
-##  ⚡️ Quick Setup
+##  ⚡️ Quick Setup (Use this repo as a template and start coding 👨🏻‍💻)
 ## 1. Install Dependencies
 
 ```bash
