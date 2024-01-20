@@ -44,7 +44,7 @@ docker run -p 5432:5432 --name your-postgres-container -e POSTGRES_PASSWORD=your
 ```
 ### or
 
-Using neon.tech for PostgreSQL:
+Use neon.tech for PostgreSQL:
 Follow the instructions on neon.tech to set up a PostgreSQL database.
 
 ## 7. Optional: Set Up Email (with Resend)
