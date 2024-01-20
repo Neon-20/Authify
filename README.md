@@ -12,6 +12,50 @@ Authify delivers a developer-friendly authentication solution 🤝. Our focus: S
 - **Server and Client Components Built-in**: Authify comes with both server and client components out of the box, streamlining the integration process for your application.
 - **Customizable to Your Needs**: Tailor Authify to fit your specific requirements by customizing its features and functionality according to your application's unique needs.
 
+##  ⚡️ Quick Setup
+## 1. Install Dependencies
+
+```bash
+npm i
+```
+## 2. Configure Environment Variables:
+Copy the .env.example file to a new file named .env. Update the file with your secrets and credentials.
+
+```bash
+cp .env.example .env
+# Edit the .env file with your secrets
+```
+## 3. Create OAuth Apps
+Create OAuth apps on Google and GitHub. Obtain the client IDs and secrets, then update your .env file with these values.
+
+## 4. Set Up Prisma
+Run the following commands to set up and generate Prisma:
+
+```bash
+npx prisma generate
+npx prisma db push
+npx prisma studio
+```
+## 5. Set Up Local Database
+If you don't have Docker installed, you can install it from Docker's official website.
+
+```bash
+docker run -p 5432:5432 --name your-postgres-container -e POSTGRES_PASSWORD=your-password -d postgres
+```
+### or
+
+Using neon.tech for PostgreSQL:
+Follow the instructions on neon.tech to set up a PostgreSQL database.
+
+## 7. Optional: Set Up Email (with Resend)
+Configure email settings if you want to enable email functionality. Update the necessary fields in your .env file.
+
+## 8.  Start the Development Server
+Run the following command to start the development server:
+```bash
+npm run dev
+```
+### Your Authify setup should now be running locally. Access it at http://localhost:3000. 🎉
 
 ## 📦 Built With
 
