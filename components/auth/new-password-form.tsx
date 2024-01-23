@@ -47,9 +47,7 @@ export const NewPasswordForm = () => {
         then((data) => {
         setError(data?.error);
         setSuccess(data?.success)
-        if(success){
         router.push("/auth/login")
-        }
         })
         // .catch((error)=>{
         //     setError("Something went wrong")
