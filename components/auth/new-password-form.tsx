@@ -47,11 +47,13 @@ export const NewPasswordForm = () => {
         then((data) => {
         setError(data?.error);
         setSuccess(data?.success)
-        router.push("/auth/login")
+        setTimeout(()=>{
+            router.push("/auth/login")
+        },1000)
         })
-        // .catch((error)=>{
-        //     setError("Something went wrong")
-        // })
+        .catch((error)=>{
+            setError("Something went wrong")
+        })
     })
     }   
 
