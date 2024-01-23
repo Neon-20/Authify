@@ -23,6 +23,7 @@ import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
 import { useState, useTransition } from "react";
 import { newPassword } from "@/actions/new-password";
+import {useRouter} from "next/navigation"
 
 export const NewPasswordForm = () => {
     const searchParams = useSearchParams();
@@ -36,6 +37,7 @@ export const NewPasswordForm = () => {
             password:"",
         }
     })
+    const router = useRouter();
 
     const onSubmit = (values:z.infer<typeof NewPasswordSchema>) => {
         setError("");
@@ -45,6 +47,9 @@ export const NewPasswordForm = () => {
         then((data) => {
         setError(data?.error);
         setSuccess(data?.success)
+        if(success){
+        router.push("/auth/login")
+        }
         })
         // .catch((error)=>{
         //     setError("Something went wrong")
