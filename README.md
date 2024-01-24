@@ -64,6 +64,7 @@ npm run dev
 - TypeScript
 - Resend
 - Next-Auth
+- Shadcn-UI
 
 ## 💡 Future Improvements
 
