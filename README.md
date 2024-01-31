@@ -36,7 +36,7 @@ npx prisma generate
 npx prisma db push
 npx prisma studio
 ```
-## 5. Set Up Local Database
+## 5. Set Up Local Database or Spin Up your own.
 If you don't have Docker installed, you can install it from Docker's official website.
 
 ```bash
