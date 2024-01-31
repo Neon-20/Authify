@@ -12,7 +12,7 @@ const UserInfo = ({
     label,
 }:UserInfoProps) => {
     return ( 
-        <Card className="w-[600px] shadow-md backdrop-blur-sm bg-black border ">
+        <Card className="w-[390px] md:w-[600px] shadow-md backdrop-blur-sm bg-black border ">
         <CardHeader>
             <p className="text-white text-2xl font-semibold">
                 {label}

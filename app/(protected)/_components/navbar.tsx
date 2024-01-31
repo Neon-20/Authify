@@ -11,7 +11,7 @@ const NavBar = () => {
     return ( 
         <nav className="
         border shadow-md flex justify-between items-center p-4
-        rounded-xl w-[600px] backdrop-blur-sm">
+        rounded-xl w-[390px] md:w-[600px] backdrop-blur-sm">
         <div className="flex gap-x-2">
         {/* Now with this gap render all the navbar list items */}
         <motion.button
