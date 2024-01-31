@@ -95,7 +95,7 @@ const SettingsPage = () =>{
         animate={{ opacity: 0.9, scale: 1 }}
         transition={{ duration: 0.5}}
         className="backdrop-blur-sm rounded-xl mt-4">
-        <Card className="w-[600px] bg-black">
+        <Card className="w-[390px] md:w-[600px] bg-black">
             <CardHeader>
             <p className="text-2xl items-center justify-center inline-flex font-semibold text-center">Settings 
             <IoSettingsOutline className ="ml-2"/>

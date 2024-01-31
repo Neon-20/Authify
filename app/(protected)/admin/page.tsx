@@ -40,7 +40,7 @@ const AdminPage = () => {
         animate={{ opacity: 0.9, scale: 1 }}
         transition={{ duration: 0.5 }}
         >
-        <Card className="w-[600px] mt-4 backdrop-blur-sm bg-black">
+        <Card className="w-[390px] md:w-[600px] mt-4 backdrop-blur-sm bg-black">
         <CardHeader>
             <p className="text-center items-center text-2xl font-semibold">
                 Admin 🔑
