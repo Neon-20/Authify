@@ -1,4 +1,4 @@
-# 🔐 Authify - Auth for devs (Next-auth V5)
+# 🔐 Authify - Auth for devs: (Next-auth V5)
 ## Top-20 Product of the Day on PH
 [ProductHunt](https://www.producthunt.com/products/authify)
 
